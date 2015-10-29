@@ -4,7 +4,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		JsonParser.loadJSON("plz.data");
+		RedisConnection redisCon = new RedisConnection();
+		redisCon.writeEntries(JsonParser.loadJSON("plz.data"));
+		//JsonParser.loadJSON("plz.data");
 	}
 
 }
