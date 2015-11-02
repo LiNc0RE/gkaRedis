@@ -19,7 +19,7 @@ public class JsonParser {
 		ArrayList<CityEntry> ergebnis = new ArrayList<CityEntry>();
 		String id;
 		String city;
-		double[] loc= new double[2];
+		double[] loc;
 		int pop;
 		String state;
 			
@@ -34,6 +34,7 @@ public class JsonParser {
 					id= json.getString("_id");
 					city= json.getString("city");
 					JSONArray locJSON = json.getJSONArray("loc");
+					loc = new double[2];
 					loc[0]=locJSON.getDouble(0);
 					loc[1]=locJSON.getDouble(1);
 					pop= json.getInt("pop");

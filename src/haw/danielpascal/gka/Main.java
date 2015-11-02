@@ -1,8 +1,5 @@
 package haw.danielpascal.gka;
 
-import haw.danielpascal.gka.datencontainer.CityEntry;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -10,8 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		RedisConnection redisCon = new RedisConnection();
-		ArrayList<CityEntry> list=JsonParser.loadJSON("plz.data");
-		//redisCon.writeEntries(JsonParser.loadJSON("plz.data"));
+		redisCon.writeEntries(JsonParser.loadJSON("plz.data"));
 		idAnfrage(redisCon);
 	}
 	
