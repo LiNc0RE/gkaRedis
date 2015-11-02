@@ -6,7 +6,7 @@ public class CityEntry {
 	
 	private String id;
 	private String city;
-	private double[] loc= new double[2];
+	private double[] loc;
 	private int pop;
 	private String state;
 	

@@ -38,7 +38,8 @@ public class JsonParser {
 					loc[1]=locJSON.getDouble(1);
 					pop= json.getInt("pop");
 					state = json.getString("state");
-					System.out.println(id + city + loc[0]+loc[1] + pop + state);
+					//TESTAUSGABE
+					//System.out.println(id + city + loc[0]+loc[1] + pop + state);
 					ergebnis.add(new CityEntry(id,city,loc,pop,state));
 				}
 				else{

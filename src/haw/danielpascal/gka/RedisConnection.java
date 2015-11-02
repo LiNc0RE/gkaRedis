@@ -35,20 +35,35 @@ public class RedisConnection {
 			mapEntry.put("state", entries.get(i).getState());
 			double[] loc = entries.get(i).getLoc();
 			String locAsString = new String();
-			for (int x = 0; x < loc.length; x++) {
-				locAsString += String.valueOf(loc[x]);
-			//	System.out.println(locAsString);
-			}
+			//Unnötig kompliziertes Konstrukt, da die Location immer aus einem 2-stelligen Array besteht
+//			for (int x = 0; x < loc.length; x++) {
+//				locAsString += String.valueOf(loc[x]);
+//			//	System.out.println(locAsString);
+//			}
+			locAsString=loc[0]+", "+loc[1];
 			mapEntry.put("loc", locAsString);
 			jedisServer.hmset(entries.get(i).getId(), mapEntry);
 			
 			//TestRückgabe | Nach jedem Schreiben, holt er sich einmal den Stadtnamen aus der Datenbank wieder raus! 
-			List<String> result = jedisServer.hmget(entries.get(i).getId(),
-					"city", "loc");
-			for (String res : result) {
-				System.out.println(res);
-			}
+//			List<String> result = jedisServer.hmget(entries.get(i).getId(),
+//					"city", "loc");
+//			for (String res : result) {
+//				System.out.println(res);
+//			}
+			System.out.println("Eintrag" +i+": "+"loc: "+locAsString);
 		}
+		System.out.println("Eintragung vollständig");
+	}
+	
+	public void getCityAndState(String id){
+		List<String> result = jedisServer.hmget(id,
+				"city", "state");
+		for (String res : result) {
+			System.out.println(res);
+		}
+	}
+	public void getID(String city){
+		
 	}
 
 }
